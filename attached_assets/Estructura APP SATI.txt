@@ -1,0 +1,409 @@
+Estructura de Aplicación para Reserva de Consultorios
+Base de datos principal
+Tabla: Usuarios
+ID de usuario
+Nombre completo
+Correo electrónico
+Teléfono
+Especialidad (psicología, etc.)
+Contraseña (encriptada)
+Método de pago predeterminado
+Historial de reservas
+Historial de pagos
+Tabla: Consultorios
+ID de consultorio
+Nombre o número de consultorio
+Descripción
+Fotos
+Precio por hora
+Características (wifi, escritorio, sillón, etc.)
+Estado (disponible, ocupado, mantenimiento)
+ID de cerradura HID (para integración)
+Tabla: Reservas
+ID de reserva
+ID de usuario
+ID de consultorio
+Fecha de reserva
+Hora de inicio
+Hora de finalización
+Estado (pendiente, confirmada, pagada, concluida, cancelada)
+Código de acceso temporal
+Monto total
+ID de transacción de pago
+Funcionalidades principales
+Módulo de Usuarios
+Registro y login
+Registro de nuevos psicólogos
+Autenticación segura
+Recuperación de contraseña
+Panel de usuario
+Vista de próximas reservas
+Historial de uso
+Gestión de método de pago
+Facturas y recibos
+Módulo de Reservas
+Calendario de disponibilidad
+Vista de disponibilidad por día/semana
+Bloqueo automático de horarios ya reservados
+Opción de reserva recurrente (mismo horario cada semana)
+Proceso de reserva
+Selección de consultorio
+Selección de fecha y hora
+Vista previa de costo
+Confirmación de reserva
+Módulo de Pagos
+Procesamiento de pagos
+Integración con Stripe/PayPal/Mercado Pago
+Pago por uso (por hora)
+Planes de suscripción opcionales (paquetes de horas)
+Facturación automática
+Reportes financieros
+Panel para administrador
+Ingresos diarios/semanales/mensuales
+Ocupación por consultorio
+Módulo de Acceso
+Sistema de entrada
+Generación de código temporal tras pago confirmado
+Envío de código por email/SMS
+Potencial integración con API de sistema HID para desbloqueo automático
+Seguridad
+Registro de entradas y salidas
+Alertas de uso no autorizado
+Integraciones
+Pago: Stripe/PayPal/Mercado Pago
+API para procesar pagos en tiempo real
+Webhook para confirmar pagos exitosos
+Mensajería: Twilio
+Envío de recordatorios por SMS
+Códigos de verificación
+Calendario: Google Calendar/Outlook
+Sincronización de reservas con calendario personal
+Recordatorios automáticos
+Control de Acceso: HID
+API para programar accesos temporales
+Registro de entradas y salidas
+Interfaces principales
+Pantallas de usuario
+Home/Dashboard
+Buscar y reservar consultorio
+Mis reservas
+Historial y pagos
+Perfil y configuración
+Pantallas de administrador
+Dashboard administrativo
+Gestión de consultorios
+Reportes de uso
+Reportes financieros
+Gestión de usuarios
+
+Panel de Administrador Expandido: Sistema de Reglas y Condiciones
+Nueva sección: Gestión de Reglas
+Pantalla: Configuración de Reglas del Sistema
+Esta pantalla permitirá al administrador establecer y modificar reglas que afecten al comportamiento global del sistema de reservas.
+1. Reglas de Reservación
+Tiempo mínimo de reserva
+Configurar el mínimo tiempo reservable (1 hora, 2 horas)
+Activar/Desactivar opción de media hora
+Establecer incrementos permitidos (solo horas completas, incrementos de 30 min, etc.)
+Tiempo máximo de reserva
+Límite de horas consecutivas por reserva
+Límite de horas totales por semana/mes por usuario
+Anticipación de reserva
+Tiempo mínimo para hacer una reserva (ej. mínimo 2 horas antes)
+Tiempo máximo para hacer una reserva (ej. máximo 30 días en adelanto)
+Horarios permitidos
+Configuración de horarios de operación (inicio/fin)
+Días especiales o feriados
+Bloqueo de horarios específicos (mantenimiento)
+2. Reglas de Cancelación y Penalización
+Políticas de cancelación
+Sin cargo: cancelación con X horas/días de anticipación
+Cargo parcial: cancelación entre X y Y horas (ej. 50% si cancela entre 24-6 horas antes)
+Cargo completo: cancelación con menos de Z horas (ej. 100% si cancela con menos de 6 horas)
+Sistema de strikes/advertencias
+Configurar número de cancelaciones tardías permitidas antes de penalización
+Definir período de evaluación (mensual, trimestral)
+Opciones de penalización (suspensión temporal, requerir pago anticipado)
+Ausencias (no-shows)
+Definir política para usuarios que reservan pero no asisten
+Cargo automático por ausencia
+Consecuencias acumulativas (ej. 3 ausencias = restricción temporal)
+3. Gestión de Usuarios Problemáticos
+Sistema de niveles de confianza
+Categorización automática de usuarios (novato, confiable, VIP)
+Degradación automática por comportamiento problemático
+Mejora automática por buen historial
+Restricciones personalizadas
+Limitar número máximo de reservas pendientes
+Requerir pago por adelantado para ciertos usuarios
+Bloqueo temporal o permanente
+Restricción de horarios premium
+4. Reglas Especiales y Excepciones
+Descuentos automáticos
+Por volumen (ej. más de 10 horas/mes)
+Por horarios de baja demanda
+Por reservas recurrentes
+Usuarios VIP/Preferentes
+Configurar usuarios exentos de ciertas restricciones
+Configurar prioridad en reservas o acceso a horarios especiales
+Pantalla: Monitoreo y Alertas
+Esta pantalla permitirá al administrador recibir notificaciones y supervisar el cumplimiento de las reglas.
+Tablero de actividad en tiempo real
+Consultorios actualmente ocupados
+Próximas reservas del día
+Alertas de posibles problemas (usuarios con reservas pero sin acceso registrado)
+Sistema de alertas
+Cancelaciones frecuentes
+Patrones sospechosos
+Usuarios con historial problemático intentando reservar
+Registro de acciones administrativas
+Historial de excepciones aplicadas
+Historial de penalizaciones
+Registro de comunicaciones con usuarios problemáticos
+Pantalla: Reportes de Comportamiento
+Esta pantalla proporcionará análisis detallados sobre el comportamiento de los usuarios.
+Métricas de confiabilidad
+Tasa de cancelación por usuario
+Tasa de asistencia puntual
+Historial de pagos a tiempo
+Patrones de uso
+Horas pico de reservas
+Usuarios más frecuentes
+Consultorios más populares
+Tasas de ocupación
+Flujos de trabajo automáticos
+Aplicación de penalizaciones
+Sistema detecta cancelación tardía
+Verifica regla aplicable (tiempo de anticipación)
+Aplica cargo correspondiente automáticamente
+Notifica al usuario y actualiza su perfil/historial
+Si alcanza umbral de incidencias, aplica restricciones adicionales automáticamente
+Gestión de excepciones
+Usuario solicita excepción a regla (UI específica)
+Administrador recibe notificación
+Puede aprobar/rechazar con un clic
+Sistema registra decisión y aplica excepción si es aprobada
+Notifica al usuario del resultado
+Ejemplos de implementación de reglas en Bubble.io
+Regla de tiempo mínimo:
+En el flujo de trabajo "New Reservation":
+Condición: IF (End Time - Start Time) < Minimum Reservation Time
+Acción: Display Error "Las reservas deben ser mínimo de X horas"
+Regla de cancelación:
+En el flujo de trabajo "Cancel Reservation":
+Condición: IF Current Date > Reservation Date - Cancellation Buffer
+Acción: Procesar cargo según porcentaje configurado
+Funcionalidad de Reservas Recurrentes para Usuarios VIP
+Niveles de Usuario y Privilegios
+Sistema de Clasificación de Usuarios
+Usuario Estándar: Acceso básico al sistema de reservas
+Usuario Confiable: Después de historial positivo (mínimo 10 reservas cumplidas)
+Usuario VIP: Psicólogos frecuentes con historial excelente o designación manual del administrador
+Privilegios Especiales para Usuarios VIP
+Acceso anticipado a nuevos horarios
+Descuentos automáticos (configurable por administrador)
+Reservas recurrentes (funcionalidad exclusiva)
+Cancelaciones con mayor flexibilidad
+Prioridad en lista de espera para horarios populares
+Módulo de Reservas Recurrentes
+Configuración de Recurrencia
+Patrón de repetición:
+Semanal (mismo día cada semana)
+Quincenal (cada dos semanas)
+Mensual (mismo día del mes o mismo día de la semana del mes)
+Personalizado (cada X días)
+Duración de la recurrencia:
+Fecha de finalización específica
+Número definido de ocurrencias
+Sin fecha de finalización (hasta cancelación)
+Excepciones:
+Posibilidad de excluir fechas específicas (vacaciones, días feriados)
+Opción de mover reserva específica dentro de un patrón recurrente
+Panel de Gestión de Reservas Recurrentes
+Para usuarios VIP:
+Vista de todas sus reservas recurrentes activas
+Opción para modificar patrones específicos
+Cancelación de serie completa o instancias individuales
+Historial de asistencia para reservas recurrentes
+Para administradores:
+Vista general de todas las reservas recurrentes en el sistema
+Capacidad para crear/modificar/cancelar cualquier serie recurrente
+Configuración de límites (máximo de series recurrentes por usuario)
+Estadísticas de uso y ocupación por reservas recurrentes
+Implementación Técnica en Bubble.io
+Base de datos:
+Nueva tabla: Series Recurrentes
+ID de serie
+ID de usuario
+ID de consultorio
+Patrón de recurrencia (tipo, frecuencia)
+Hora de inicio
+Duración
+Fecha de inicio
+Fecha de finalización/número de ocurrencias
+Estado (activa, suspendida, finalizada)
+Fechas excluidas
+Fecha de creación
+Último procesamiento
+Workflows:
+Procesador de Recurrencia (programado diariamente):
+Revisa todas las series recurrentes activas
+Genera reservas individuales para las próximas 4 semanas
+Evita conflictos con reservas existentes
+Notifica usuarios sobre cualquier problema
+Cancelación Inteligente:
+Opciones al cancelar: "Esta reserva" o "Toda la serie"
+Verificación de política de cancelación para cada instancia
+Aplicación de cargos según proximidad de la fecha
+Modificación de Serie:
+Opción para modificar todas las instancias futuras
+Verificación de disponibilidad para el nuevo horario
+Resolución de conflictos automática o manual
+Flujo de Usuario para Reservas Recurrentes
+Usuario VIP selecciona "Crear reserva recurrente" en el calendario
+Elige consultorio, día de la semana y horario deseado
+Configura patrón de repetición y duración
+Sistema verifica disponibilidad para todas las fechas en el rango
+Si hay conflictos, muestra fechas problemáticas con alternativas
+Usuario confirma la serie completa
+Sistema procesa el pago inicial (opcional: primer mes o toda la serie)
+Se generan automáticamente todas las reservas individuales
+Usuario recibe confirmación con calendario descargable/sincronizable
+Reportes y Análisis
+Ocupación por reservas recurrentes: Porcentaje del tiempo total ocupado por reservas recurrentes
+Valor de clientes recurrentes: Ingresos generados por reservas recurrentes vs. ocasionales
+Fidelidad: Tasa de renovación de series recurrentes
+Optimización: Sugerencias para ajustar precios en horarios populares para series recurrentes
+Sistema Dual de Pago: Suscripción Mensual y Pago por Hora
+Estructura del Sistema de Membresías
+Tipos de Usuarios por Modelo de Pago
+1. Usuarios de Suscripción Mensual
+Plan Básico
+X horas mensuales incluidas
+Acceso en horarios estándar (9am-5pm)
+Precio fijo mensual
+Renovación automática
+Plan Estándar
+X+Y horas mensuales incluidas
+Acceso en horarios extendidos (8am-8pm)
+Descuento en horas adicionales
+Prioridad de reserva nivel 2
+Plan Premium
+Horas ilimitadas (sujeto a disponibilidad)
+Acceso 24/7
+Reservas recurrentes incluidas
+Prioridad de reserva nivel 1
+Cancelación flexible
+2. Usuarios de Pago por Hora
+Usuario Ocasional
+Pago completo por hora
+Sin compromiso de permanencia
+Reserva sujeta a disponibilidad después de usuarios con suscripción
+Políticas estándar de cancelación
+Usuario Frecuente (automático después de X reservas)
+Pequeño descuento por hora
+Historial positivo requerido
+Acceso a horarios premium con tarifa adicional
+Gestión de Sistema Dual en la Aplicación
+Base de Datos Expandida
+Tabla: Planes de Suscripción
+ID del plan
+Nombre del plan
+Precio mensual
+Horas incluidas
+Nivel de prioridad
+Descuento en horas adicionales
+Política de cancelación asociada
+Horarios disponibles
+Beneficios adicionales
+Tabla: Suscripciones de Usuarios
+ID de suscripción
+ID de usuario
+ID del plan
+Fecha de inicio
+Fecha de renovación
+Estado (activa, pausada, cancelada)
+Historial de pagos
+Horas consumidas en el período actual
+Horas restantes
+Tabla: Tarifas por Hora
+ID de tarifa
+Nombre de consultorio
+Precio estándar por hora
+Precio en horario premium
+Descuentos por volumen
+Descuentos para usuarios frecuentes
+Tarifas especiales (fines de semana, noche)
+Calendario Inteligente con Prioridades
+Sistema de visualización que muestra:
+Horarios reservados
+Horarios disponibles para todos
+Horarios disponibles solo para suscriptores
+Horarios de alta demanda (precio premium)
+Algoritmo de prioridad:
+Suscriptores Premium
+Suscriptores Estándar
+Suscriptores Básicos
+Usuarios Frecuentes de pago por hora
+Usuarios Ocasionales de pago por hora
+Flujos de Trabajo Específicos en Bubble.io
+1. Registro de Usuario con Selección de Modelo
+Opción durante registro: "Suscripción mensual" o "Pago por hora"
+Flujo específico según selección
+Para suscripción: selección de plan y procesamiento de primer pago
+Para pago por hora: configuración de método de pago predeterminado
+2. Gestión de Horas para Suscriptores
+Contador de horas usadas/restantes visible en dashboard
+Alertas cuando se aproxima al límite de horas
+Proceso automático para compra de horas adicionales
+Renovación automática al inicio de cada ciclo
+3. Procesamiento de Pagos Dual
+Suscripción: cargo recurrente mensual automático
+Pago por hora: autorización previa y cargo al confirmar reserva
+Sistema de reembolsos según política de cancelación
+Facturación separada por tipo de usuario
+4. Reservas con Sistema de Prioridad
+Períodos de reserva anticipada por nivel:
+Premium: hasta 60 días antes
+Estándar: hasta 30 días antes
+Básico: hasta 15 días antes
+Pago por hora: hasta 7 días antes
+Lista de espera con priorización automática
+Panel de Administración para Sistema Dual
+Gestión de Planes y Tarifas
+Crear/modificar planes de suscripción
+Ajustar precios por hora según demanda
+Configurar descuentos y promociones
+Establecer períodos de bloqueo o alta demanda
+Reportes Financieros Segregados
+Ingresos por suscripciones
+Ingresos por pagos individuales
+Comparativas de rentabilidad
+Proyecciones basadas en renovaciones
+Análisis de Comportamiento por Tipo de Usuario
+Patrones de uso por tipo de usuario
+Tasa de conversión de pago por hora a suscripción
+Tasa de retención por plan
+Horas promedio utilizadas por tipo de suscripción
+Experiencia de Usuario por Tipo
+Para Suscriptores Mensuales:
+Dashboard que muestra:
+Horas utilizadas/restantes
+Fecha de próxima renovación
+Opción para cambiar de plan
+Historia de uso
+Beneficios especiales disponibles
+Experiencia de reserva:
+Indicadores visuales de horarios incluidos en su plan
+Proceso simplificado (menos pasos para confirmar)
+Opción para reservar horas adicionales con cargo
+Para Usuarios de Pago por Hora:
+Dashboard que muestra:
+Historial de uso
+Total gastado
+Sugerencia de plan de suscripción adecuado según uso
+Estado de usuario (ocasional/frecuente)
+Experiencia de reserva:
+Visualización clara de precios por hora
+Proceso de pago por cada reserva
+Información sobre disponibilidad limitada en horarios premium
