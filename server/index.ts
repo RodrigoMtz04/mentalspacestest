@@ -9,11 +9,19 @@ import { log } from "./log";
 // (evita cargar rollup/optional deps en entorno serverless)
 let setupVite: any = null;
 let serveStatic: any = null;
-try {
-  // dinámico, no falla si el bundle de producción no incluye vite
-  ({ setupVite, serveStatic } = await import("./vite"));
-} catch {
-  // ignoramos si no existe (p.ej. en serverless con build reducido)
+// No importar aquí al cargar el módulo para evitar que Vite/Rollup se carguen en producción.
+async function loadViteIfNeeded() {
+  try {
+    // Cargamos solo en desarrollo o cuando explícitamente se necesite
+    if (process.env.NODE_ENV === "development" || process.env.REPL_ID !== undefined) {
+      const mod = await import("./vite");
+      setupVite = mod.setupVite;
+      serveStatic = mod.serveStatic;
+    }
+  } catch (e) {
+    // No hacemos fail en producción; dejamos setupVite/serveStatic en null
+    console.warn("Vite helpers not available:", (e as Error).message || e);
+  }
 }
 
 export function createApp() {
@@ -126,10 +134,12 @@ async function bootstrapStandalone() {
   const server = await registerRoutes(app);
   app.use(errorHandler);
 
-  const isDev = app.get("env") === "development" && setupVite;
+  // Cargar helpers de vite solo si se necesita (evita cargar rollup en producción)
+  await loadViteIfNeeded();
+  const isDev = app.get("env") === "development" && typeof setupVite === "function";
   if (isDev) {
     await setupVite(app, server);
-  } else if (serveStatic) {
+  } else if (typeof serveStatic === "function") {
     serveStatic(app);
   }
 
