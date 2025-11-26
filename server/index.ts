@@ -1,4 +1,4 @@
-import express, { type Request, Response, NextFunction } from "express";
+import express, { Response } from "express";
 import { registerRoutes } from "./vista/routes";
 import { setupVite, serveStatic, log } from "./vite";
 import path from "path";
@@ -43,31 +43,39 @@ app.use((req, res, next) => {
 // Registrar manejadores globales de errores del proceso
 registerProcessErrorHandlers();
 
-(async () => {
+// Exportar la app para poder reutilizarla (serverless Vercel)
+export { app };
+
+async function bootstrap() {
+  // Evitar arrancar el servidor en entorno Vercel (serverless)
+  if (process.env.VERCEL) {
+    // Sólo registrar rutas y middlewares mínimos para que Vercel use la app
+    const uploadsDir = path.join(process.cwd(), "uploads");
+    app.use(
+      "/uploads",
+      express.static(uploadsDir, { index: false, fallthrough: false })
+    );
+    await registerRoutes(app);
+    app.use(errorHandler);
+    return; // No listen
+  }
+
   // 1) Servir archivos subidos ANTES de registrar Vite o el catch-all
   const uploadsDir = path.join(process.cwd(), "uploads");
   app.use(
     "/uploads",
-    express.static(uploadsDir, {
-      index: false,
-      fallthrough: false,
-      // express.static ya maneja Content-Type adecuadamente
-    })
+    express.static(uploadsDir, { index: false, fallthrough: false })
   );
-
   // 2) Registrar rutas de la API
   const server = await registerRoutes(app);
-
   // 3) Manejador de errores JSON para la API (usa Winston + BD)
   app.use(errorHandler);
-
   // 4) Configurar Vite (dev) o estáticos (prod) DESPUÉS de montar '/uploads'
   if (app.get("env") === "development") {
     await setupVite(app, server);
   } else {
     serveStatic(app);
   }
-
   // 5) Escuchar puerto
   const port = 5000;
   server.listen(
@@ -79,4 +87,10 @@ registerProcessErrorHandlers();
       log(`serving on port ${port}`);
     }
   );
-})();
+}
+
+bootstrap().catch((e) => {
+  console.error("Fallo en bootstrap", e);
+});
+
+export default app;
