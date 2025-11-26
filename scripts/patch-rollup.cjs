@@ -15,13 +15,16 @@ try {
       } catch (e) {
         // ignore backup errors
       }
+      // CommonJS stub that provides named exports expected by ESM imports
       const stub = `// patched by scripts/patch-rollup.cjs to avoid attempting to load native binaries
-// This stub prevents crash in environments where optional native binaries are not present.
+// CommonJS stub providing parse/parseAsync/requireWithFriendlyError to satisfy imports
+function parse() { throw new Error('Native rollup binary disabled by patch.'); }
+async function parseAsync() { throw new Error('Native rollup binary disabled by patch.'); }
+function requireWithFriendlyError() { throw new Error('Native rollup binary disabled by patch.'); }
 module.exports = {
-  // When rollup expects native helpers, degrade gracefully by throwing a clear error
-  requireWithFriendlyError: function() {
-    throw new Error('Native rollup binary disabled by patch.');
-  }
+  parse,
+  parseAsync,
+  requireWithFriendlyError,
 };
 `;
       fs.writeFileSync(nativePath, stub, 'utf8');
@@ -29,10 +32,11 @@ module.exports = {
     }
 
     // write ESM stub for environments that import '../../native.js' as an ESM module
-    const esmStub = `// patched ESM stub for rollup native helpers
-export default {
-  requireWithFriendlyError: () => { throw new Error('Native rollup binary disabled by patch (ESM stub).'); }
-};
+    const esmStub = `// patched ESM stub for rollup native helpers (provides named exports)
+export function parse() { throw new Error('Native rollup binary disabled by patch (ESM stub).'); }
+export async function parseAsync() { throw new Error('Native rollup binary disabled by patch (ESM stub).'); }
+export function requireWithFriendlyError() { throw new Error('Native rollup binary disabled by patch (ESM stub).'); }
+export default { parse, parseAsync, requireWithFriendlyError };
 `;
     try {
       fs.writeFileSync(nativeMjsPath, esmStub, 'utf8');
