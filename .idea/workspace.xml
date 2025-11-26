@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="824286c4-5344-47e1-a541-9eae46efb06a" name="Changes" comment="vercel">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vercel.json" beforeDir="false" afterPath="$PROJECT_DIR$/vercel.json" afterDir="false" />
-    </list>
+    <list default="true" id="824286c4-5344-47e1-a541-9eae46efb06a" name="Changes" comment="vercel" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,7 +73,7 @@
       <updated>1764124875314</updated>
       <workItem from="1764124877043" duration="2830000" />
       <workItem from="1764180820733" duration="264000" />
-      <workItem from="1764181123762" duration="7496000" />
+      <workItem from="1764181123762" duration="7847000" />
     </task>
     <task id="LOCAL-00001" summary="aaaaaa">
       <option name="closed" value="true" />
