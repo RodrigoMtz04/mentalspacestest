@@ -7,10 +7,12 @@ import { setupAuth } from "../negocio/auth.ts";
 import { registerDomainRoutes } from "./routes/registerDomainRoutes";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Configuración de sesión y autenticación con el nuevo módulo auth.ts
+  // Configuración de sesión y autenticación
   setupAuth(app);
 
   const apiRouter = express.Router();
+  // Importante: aplicar json solo en router para no interferir con webhook montado en app
+  apiRouter.use(express.json());
 
   await registerDomainRoutes(apiRouter, app);
 

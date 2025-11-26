@@ -47,12 +47,13 @@ export function setupAuth(app: Express) {
     saveUninitialized: false,
     rolling: true, // sliding expiration
     store: new PgSession({
-      conString: process.env.DATABASE_URL,
+      // Usar el mismo pool compartido; evita más conexiones
+      pool,
       createTableIfMissing: true,
       tableName: 'session'
     }) as any,
     cookie: {
-      secure: false, // cambiar a true detrás de HTTPS
+      secure: process.env.NODE_ENV === "production", // detrás de HTTPS en Vercel
       httpOnly: true,
       maxAge: SESSION_ABSOLUTE_MS, // expiración absoluta
       sameSite: 'lax'
@@ -93,40 +94,26 @@ export function setupAuth(app: Express) {
       log(`Intentando autenticar usuario: ${username}`, "auth");
       try {
         const user = await userStorage.getUserByUsername(username);
-        if (!user) {
-          log(`Usuario no encontrado: ${username}`, "auth");
-          return done(null, false, { message: "Usuario no encontrado" });
-        }
-        // TODO: implementar hashing seguro
-        if (user.password !== password) {
-          log(`Contraseña incorrecta para usuario: ${username}`, "auth");
-          return done(null, false, { message: "Contraseña incorrecta" });
-        }
-        log(`Usuario autenticado correctamente: ${username}`, "auth");
+        if (!user) return done(null, false, { message: "Usuario no encontrado" });
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+        if (!isPasswordValid) return done(null, false, { message: "Contraseña incorrecta" });
         return done(null, user);
       } catch (error) {
-        log(`Error durante autenticación: ${error}`, "auth");
         return done(error);
       }
     }),
   );
 
   passport.serializeUser((user, done) => {
-    log(`Serializando usuario: ${user.id}`, "auth");
     done(null, (user as any).id as number);
   });
 
   passport.deserializeUser(async (id: number, done) => {
     try {
-      log(`Deserializando usuario: ${id}`, "auth");
       const user = await userStorage.getUser(id);
-      if (!user) {
-        log(`Usuario no encontrado durante deserialización: ${id}`, "auth");
-        return done(null, false);
-      }
+      if (!user) return done(null, false);
       done(null, user);
     } catch (error) {
-      log(`Error durante deserialización: ${error}`, "auth");
       done(error, null);
     }
   });

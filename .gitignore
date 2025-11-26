@@ -1,10 +1,28 @@
-node_modules
-dist
+# dependencias/entorno
+node_modules/
+.env
+.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE
+.idea/
+
+# build
+.dist/
+dist/
+.out/
+out/
+
+# Archivos de sistema
 .DS_Store
-server/public
+
+# Archivos de configuración de Vite
 vite.config.ts.*
+
+# Otros
 *.tar.gz
-.env*
 logs/
 uploads/
-.env

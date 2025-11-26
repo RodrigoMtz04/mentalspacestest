@@ -31,9 +31,19 @@ const timestampLocal = winston.format.timestamp({
     }).format(new Date()),
 });
 
+const isProd = process.env.NODE_ENV === "production";
+const isVercel = !!process.env.VERCEL;
+
+const transports: winston.transport[] = [];
+
+if (isProd && isVercel) {
+  transports.push(new winston.transports.Console({ level: "info" }));
+} else {
+  transports.push(new winston.transports.Console({ level: "debug" }));
+}
+
 export const logger = winston.createLogger({
-  level,
-  levels: winston.config.npm.levels,
+  level: isProd ? "info" : "debug",
   format: winston.format.combine(
     timestampLocal,
     winston.format.errors({ stack: true }),
@@ -112,4 +122,12 @@ export function registerProcessErrorHandlers() {
       setTimeout(() => process.exit(1), 250);
     }
   });
+}
+
+export function log(message: string, scope?: string) {
+  if (scope) {
+    logger.info(`[${scope}] ${message}`);
+  } else {
+    logger.info(message);
+  }
 }
