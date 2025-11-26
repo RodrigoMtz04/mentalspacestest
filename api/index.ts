@@ -1,5 +1,12 @@
-// Handler para Vercel: exporta la instancia de Express
-// Importamos la app desde el bundle compilado (npm run build genera dist/index.js)
-import app from "../dist/index.js";
+import { app } from "../server/index.ts";
+import { registerRoutes } from "../server/vista/routes.ts";
+import { errorHandler } from "../server/middleware/errorHandler.ts";
+let initialized = false;
+async function init() {
+  if (initialized) return;
+  await registerRoutes(app);
+  app.use(errorHandler);
+  initialized = true;
+}
+await init();
 export default app;
-// Nota: El código en server/index.ts evita hacer listen si process.env.VERCEL está definido.

@@ -5,7 +5,7 @@ import session from "express-session";
 import connectPgSimple from "connect-pg-simple";
 import { userStorage } from "./storage/userStorage.ts";
 import { User as SelectUser } from "@shared/schema.ts";
-import { log } from "../vite.ts";
+import { log } from "../log.ts";
 import { systemLogsStorage } from "./storage/systemLogsStorage.ts";
 import { pool } from "../persistencia/db.ts";
 import bcrypt from "bcrypt";
