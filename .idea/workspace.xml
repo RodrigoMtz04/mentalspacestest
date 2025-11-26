@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="824286c4-5344-47e1-a541-9eae46efb06a" name="Changes" comment="vercel">
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vercel.json" beforeDir="false" afterPath="$PROJECT_DIR$/vercel.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;RodrigoMtz04&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/RodrigoMtz04/mentalspacestest.git&quot;,
+    &quot;accountId&quot;: &quot;01c57066-9b67-41c9-a860-54f08f4cada2&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="35ztkZcPAFlnBg9Yk4USlqa7Pdf" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/RodrigoMtz/WebstormProjects/mentalspacestest",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Users\\RodrigoMtz\\WebstormProjects\\mentalspacestest\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\RodrigoMtz\WebstormProjects\mentalspacestest" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-WS-252.27397.92" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="824286c4-5344-47e1-a541-9eae46efb06a" name="Changes" comment="" />
+      <created>1764124875314</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1764124875314</updated>
+      <workItem from="1764124877043" duration="2830000" />
+      <workItem from="1764180820733" duration="264000" />
+      <workItem from="1764181123762" duration="7496000" />
+    </task>
+    <task id="LOCAL-00001" summary="aaaaaa">
+      <option name="closed" value="true" />
+      <created>1764125034082</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1764125034082</updated>
+    </task>
+    <task id="LOCAL-00002" summary="aaaaaa">
+      <option name="closed" value="true" />
+      <created>1764125277232</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1764125277232</updated>
+    </task>
+    <task id="LOCAL-00003" summary="aaaaaa">
+      <option name="closed" value="true" />
+      <created>1764125385652</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1764125385652</updated>
+    </task>
+    <task id="LOCAL-00004" summary="aaaaaa">
+      <option name="closed" value="true" />
+      <created>1764126111802</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1764126111802</updated>
+    </task>
+    <task id="LOCAL-00005" summary="aaaaaa">
+      <option name="closed" value="true" />
+      <created>1764126283411</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1764126283411</updated>
+    </task>
+    <task id="LOCAL-00006" summary="aaaaaa">
+      <option name="closed" value="true" />
+      <created>1764126433069</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1764126433069</updated>
+    </task>
+    <task id="LOCAL-00007" summary="aaaaaa">
+      <option name="closed" value="true" />
+      <created>1764126675820</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1764126675820</updated>
+    </task>
+    <task id="LOCAL-00008" summary="aaaaaa">
+      <option name="closed" value="true" />
+      <created>1764127228373</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1764127228373</updated>
+    </task>
+    <task id="LOCAL-00009" summary="aaaaaa">
+      <option name="closed" value="true" />
+      <created>1764127272776</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1764127272776</updated>
+    </task>
+    <task id="LOCAL-00010" summary="aaaaaa">
+      <option name="closed" value="true" />
+      <created>1764180865630</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1764180865630</updated>
+    </task>
+    <task id="LOCAL-00011" summary="aaaaaa">
+      <option name="closed" value="true" />
+      <created>1764181064102</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1764181064102</updated>
+    </task>
+    <task id="LOCAL-00012" summary="vercel">
+      <option name="closed" value="true" />
+      <created>1764181769863</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1764181769863</updated>
+    </task>
+    <task id="LOCAL-00013" summary="vercel">
+      <option name="closed" value="true" />
+      <created>1764181901769</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1764181901769</updated>
+    </task>
+    <task id="LOCAL-00014" summary="vercel">
+      <option name="closed" value="true" />
+      <created>1764182501828</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1764182501828</updated>
+    </task>
+    <task id="LOCAL-00015" summary="vercel">
+      <option name="closed" value="true" />
+      <created>1764182849060</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1764182849060</updated>
+    </task>
+    <task id="LOCAL-00016" summary="vercel">
+      <option name="closed" value="true" />
+      <created>1764183155504</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1764183155504</updated>
+    </task>
+    <task id="LOCAL-00017" summary="vercel">
+      <option name="closed" value="true" />
+      <created>1764183741270</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1764183741270</updated>
+    </task>
+    <task id="LOCAL-00018" summary="vercel">
+      <option name="closed" value="true" />
+      <created>1764186351194</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1764186351194</updated>
+    </task>
+    <task id="LOCAL-00019" summary="vercel">
+      <option name="closed" value="true" />
+      <created>1764186785644</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1764186785644</updated>
+    </task>
+    <task id="LOCAL-00020" summary="vercel">
+      <option name="closed" value="true" />
+      <created>1764187264777</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1764187264777</updated>
+    </task>
+    <task id="LOCAL-00021" summary="vercel">
+      <option name="closed" value="true" />
+      <created>1764187912861</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1764187912861</updated>
+    </task>
+    <task id="LOCAL-00022" summary="vercel">
+      <option name="closed" value="true" />
+      <created>1764188279745</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1764188279745</updated>
+    </task>
+    <task id="LOCAL-00023" summary="vercel">
+      <option name="closed" value="true" />
+      <created>1764188617433</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1764188617433</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/api/index.mjs" />
+      </list>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="aaaaaa" />
+    <MESSAGE value="vercel" />
+    <option name="LAST_COMMIT_MESSAGE" value="vercel" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
+  </component>
+</project>
