@@ -22,4 +22,19 @@ if (fs.existsSync(distPath)) {
   }
 }
 
-export default app;
+// Exportar un handler compatible con Vercel: una función (req,res) que delega en el Express app.
+// Esto evita problemas donde el runtime esperaba una función y recibía un objeto `app`.
+export default async function handler(req: any, res: any) {
+  if (!app) {
+    res.statusCode = 500;
+    return res.end("Server not initialized");
+  }
+
+  // Si `app` es un handler ya (por ejemplo serverless-http), simplemente llamarlo.
+  if (typeof app === "function") {
+    return app(req, res);
+  }
+
+  // Si `app` es una instancia de Express, delegar la petición
+  return app(req, res);
+}

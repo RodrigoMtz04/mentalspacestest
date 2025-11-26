@@ -49,6 +49,15 @@ export function createApp() {
     }),
   );
 
+  // Asegurar respuesta a preflight OPTIONS para todas las rutas (evita 405 en algunos entornos)
+  app.options("*", cors({
+    origin: (origin, callback) => callback(null, true),
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    preflightContinue: false,
+  }));
+
   app.use((req, res, next) => {
     const start = Date.now();
     const requestPath = req.path;
