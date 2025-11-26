@@ -3,7 +3,7 @@ dotenv.config();
 
 import express, { type Express } from "express";
 import { createServer, type Server } from "http";
-import { setupAuth } from "../negocio/auth.ts";
+import { setupAuth } from "../negocio/auth";
 import { registerDomainRoutes } from "./routes/registerDomainRoutes";
 
 export async function registerRoutes(app: Express): Promise<Server> {

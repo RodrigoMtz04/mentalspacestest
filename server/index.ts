@@ -1,9 +1,8 @@
 import express, { Response } from "express";
 import { registerRoutes } from "./vista/routes";
-import path from "path";
-import { registerProcessErrorHandlers } from "./negocio/logger.ts";
-import { errorHandler } from "./middleware/errorHandler.ts";
-import { log } from "./log.ts";
+import { registerProcessErrorHandlers } from "./negocio/logger";
+import { errorHandler } from "./middleware/errorHandler";
+import { log } from "./log";
 // Importamos lazily vite helpers solo si los necesitamos en dev local
 // (evita cargar rollup/optional deps en entorno serverless)
 let setupVite: any = null;

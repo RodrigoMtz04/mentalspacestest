@@ -3,13 +3,13 @@ import { Strategy as LocalStrategy } from "passport-local";
 import { Express } from "express";
 import session from "express-session";
 import connectPgSimple from "connect-pg-simple";
-import { userStorage } from "./storage/userStorage.ts";
-import { User as SelectUser } from "@shared/schema.ts";
-import { log } from "../log.ts";
-import { systemLogsStorage } from "./storage/systemLogsStorage.ts";
-import { pool } from "../persistencia/db.ts";
+import { userStorage } from "./storage/userStorage";
+import { User as SelectUser } from "@shared/schema";
+import { log } from "../log";
+import { systemLogsStorage } from "./storage/systemLogsStorage";
+import { pool } from "../persistencia/db";
 import bcrypt from "bcrypt";
-import { paymentStorage } from "./storage/paymentStorage.ts";
+import { paymentStorage } from "./storage/paymentStorage";
 
 declare module "express-session" {
   interface SessionData {

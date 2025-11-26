@@ -1,6 +1,6 @@
-import { app } from "../server/index.ts";
-import { registerRoutes } from "../server/vista/routes.ts";
-import { errorHandler } from "../server/middleware/errorHandler.ts";
+import { app } from "../server/index";
+import { registerRoutes } from "../server/vista/routes";
+import { errorHandler } from "../server/middleware/errorHandler";
 let initialized = false;
 async function init() {
   if (initialized) return;
