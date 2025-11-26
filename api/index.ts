@@ -17,3 +17,5 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   const handler = await getHandler();
   return handler(req as any, res as any);
 }
+
+export { default } from "./handler";
