@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import serverless from "serverless-http";
 import express from "express";
-import { registerRoutes } from "../server/vista/routes.ts";
+import { registerRoutes } from "../server/vista/routes";
 import { serveStatic } from "../server/vite";
 import { errorHandler } from "../server/middleware/errorHandler";
 
