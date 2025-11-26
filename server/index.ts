@@ -1,4 +1,6 @@
 import express, { Response } from "express";
+import cors from "cors";
+import path from "path";
 import { registerRoutes } from "./vista/routes";
 import { registerProcessErrorHandlers } from "./negocio/logger";
 import { errorHandler } from "./middleware/errorHandler";
@@ -16,8 +18,36 @@ try {
 
 export function createApp() {
   const app = express();
-  app.use(express.json());
+  app.use(
+    express.json({
+      verify: (req: any, _res, buf) => {
+        if (process.env.DEBUG_RAW_BODY === "1") {
+          try {
+            req.rawBody = buf.toString("utf8");
+            console.log("DEBUG_RAW_BODY", req.method, req.path, req.rawBody);
+          } catch (e) {
+            console.warn("DEBUG_RAW_BODY: failed to capture raw body", e);
+          }
+        }
+      },
+    }),
+  );
   app.use(express.urlencoded({ extended: false }));
+
+  // Habilitar CORS para permitir llamadas desde el cliente en dev (preflight OPTIONS incluidas)
+  // Permitimos credenciales (cookies/sesiones) y Content-Type JSON
+  app.use(
+    cors({
+      origin: (origin, callback) => {
+        // Aceptar la mayoría de orígenes en desarrollo. En producción restringir a dominios válidos.
+        callback(null, true);
+      },
+      credentials: true,
+      methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+      allowedHeaders: ["Content-Type", "Authorization"],
+      preflightContinue: false,
+    }),
+  );
 
   app.use((req, res, next) => {
     const start = Date.now();
@@ -53,6 +83,7 @@ export { app };
 export default app;
 
 async function bootstrapStandalone() {
+  console.log('bootstrapStandalone: comenzando inicialización');
   // Si estamos en entorno serverless (Vercel) no levantamos listen; sólo preparamos rutas.
   const uploadsDir = path.join(process.cwd(), "uploads");
   app.use(
@@ -89,9 +120,8 @@ async function bootstrapStandalone() {
 }
 
 // Ejecutar sólo si este módulo es el entrypoint directo (node server/index.ts)
-if (
-  import.meta.url ===
-  `file://${process.cwd().replace(/\\/g, "/")}/server/index.ts`
-) {
+const entrypoint1 = `file://${process.cwd().replace(/\\/g, "/")}/server/index.ts`;
+const entrypoint2 = `file:///${process.cwd().replace(/\\/g, "/")}/server/index.ts`;
+if (import.meta.url === entrypoint1 || import.meta.url === entrypoint2) {
   bootstrapStandalone().catch((e) => console.error("Fallo en bootstrap", e));
 }
