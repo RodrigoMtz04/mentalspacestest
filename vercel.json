@@ -1,10 +1,10 @@
 {
   "version": 2,
   "builds": [
-    { "src": "api/index.ts", "use": "@vercel/node" }
+    { "src": "api/handler.ts", "use": "@vercel/node" }
   ],
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/index.ts" },
-    { "source": "/(.*)", "destination": "/api/index.ts" }
+    { "source": "/api/(.*)", "destination": "/api/handler.ts" },
+    { "source": "/(.*)", "destination": "/api/handler.ts" }
   ]
 }

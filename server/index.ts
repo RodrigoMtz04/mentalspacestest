@@ -5,11 +5,11 @@ import path from "path";
 import { registerProcessErrorHandlers } from "./negocio/logger.ts";
 import { errorHandler } from "./middleware/errorHandler.ts";
 
+// Para producción (Vercel) usamos server/app.ts; este archivo sólo arranca en dev.
+
 const app = express();
-// Nota: NO aplicar express.json() global aquí, el webhook usa raw body.
 app.use(express.urlencoded({ extended: false }));
 
-// Logger simple de métricas
 app.use((req, res, next) => {
   const start = Date.now();
   const p = req.path;
@@ -52,7 +52,6 @@ registerProcessErrorHandlers();
       log(`serving on port ${port}`);
     });
   } else {
-    // En producción (Vercel), no se debe llamar listen(). El servidor será manejado por la Function.
     serveStatic(app);
   }
 })();
